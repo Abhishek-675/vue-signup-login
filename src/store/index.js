@@ -2,7 +2,12 @@
 import { createStore } from 'vuex'
 
 import axios from 'axios';
-const Base_URL = 'http://localhost:3000';
+let Base_URL;
+if (process.env.NODE_ENV === 'production'){
+  Base_URL = 'http://www.alegralabs.com:3000';
+} else{
+  Base_URL = 'http://localhost:3000';
+}
 
 export default createStore({
   state: {
